@@ -1,0 +1,36 @@
+https://leetcode.com/problems/binary-tree-pruning/
+class Solution {
+    bool helper(TreeNode* node){
+        bool flag = false; 
+        if(node->left){
+            flag = helper(node->left);
+                if(not flag){
+                    delete node->left; 
+                    node->left = nullptr; 
+            }
+        }
+
+        bool flagtwo = false; 
+        if(node->right){
+            flagtwo = helper(node->right);
+            if(not flagtwo){
+                delete node->right; 
+                node->right = nullptr; 
+            }
+        }
+
+        if(node->val == 0 and not flag and not flagtwo)
+            return false; 
+        return true; 
+    }
+public:
+    TreeNode* pruneTree(TreeNode* root) {
+       if(not helper(root)){
+            delete root; 
+            root = nullptr; 
+        }   
+
+        return root; 
+        
+    }
+};
