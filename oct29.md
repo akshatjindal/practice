@@ -1,8 +1,8 @@
 [814. Binary Tree Pruning - Medium](https://leetcode.com/problems/binary-tree-pruning/)
 
     Let n be the number of nodes, then O(n) is the time complexity and space complexity because we have to check every node 
-    
-    
+
+
 ```cpp
 class Solution {
     bool helper(TreeNode* node){
